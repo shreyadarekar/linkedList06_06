@@ -65,9 +65,27 @@ class SinglyLinkedList {
     // Remove node at tail
     // Your code here
     if (!this.length) return;
-    
 
-    let
+    let currNode = this.head;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.length--;
+
+      return currNode;
+    }
+    let trailingNode = null;
+
+    while (currNode.next) {
+      trailingNode = currNode;
+      currNode = currNode.next;
+    }
+
+    trailingNode.next = null;
+    this.length--;
+
+    return currNode;
+
     // Write your hypothesis on the time complexity of this method here
   }
 
